@@ -5,7 +5,7 @@ function piped (stream) {
   stream.pipe = function (dest) {
     pipe.call(this, dest);
     this.emit('piped', dest);
-    return this;
+    return dest;
   }
   return stream;
 }
