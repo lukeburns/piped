@@ -3,7 +3,7 @@ var piped = require('./');
 var through = require('through2');
 
 test('event fires with destination as argument', function (t) {
-  t.plan(1);
+  t.plan(2);
   var stream = piped(through());
   var out = process.stdout;
 
@@ -11,5 +11,10 @@ test('event fires with destination as argument', function (t) {
     t.equal(dest, out);
   });
 
+  stream.on('unpiped', function (dest) {
+    t.equal(dest, out);
+  });
+
   stream.pipe(out);
+  stream.unpipe(out);
 });
