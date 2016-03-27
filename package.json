@@ -1,7 +1,7 @@
 {
   "name": "piped",
   "description": "Emit an event on outbound pipes.",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "repository": {
     "url": "git://github.com/lukeburns/piped.git"
   },

@@ -10,7 +10,10 @@ var stream = piped(stream);
 stream.on('piped', function (dest) {
   this.unpipe(dest);
 });
-stream.pipe(process.stdout); // immediately unpiped
+stream.on('unpiped', function () {
+  console.log('i was unpiped!');
+});
+stream.pipe(process.stdout);
 ```
 
 Install
